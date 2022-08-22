@@ -5,7 +5,7 @@ start(N, M) ->
 	L = for(1, N, fun() -> spawn(interaction1, loop, []) end),
 	io:format("~p, ~p ~n", [L, M]),
 	[H|T] = L,
-	H ! {list, T, 0, M, L}.
+	H ! {list, T, 1, M, L}.
 
 loop() -> 
 	receive
