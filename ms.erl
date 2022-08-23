@@ -5,15 +5,15 @@
 start(N) ->
 	L = mf:for(1, N, fun() -> spawn(ms, loop, []) end),
 	Master = spawn(ms, msLoop, [L]),
-	case is_pid(whereis(msPid)) of
-		true -> unregister(msPid);
-		false -> msPid_is_undefind
+	case is_pid(whereis(master)) of
+		true -> unregister(master);
+		false -> master_is_undefind
 	end,
-	register(msPid, Master),
+	register(master, Master),
 	io:format("Master: ~p~nSlaves: ~p~n", [Master, L]).
 
 to_slave(Message, N) ->
-	msPid ! {Message, N}.
+	master ! {Message, N}.
 	
 msLoop(L) ->
 	receive
@@ -38,7 +38,7 @@ loop() ->
 		loop();
 	
 		{die, N, N} -> 
-		msPid ! {rein, N, N},
+		master ! {rein, N, N},
 		io:format("Master restarting dead slave ~p~n", [N]),
 		loop()
 	end.

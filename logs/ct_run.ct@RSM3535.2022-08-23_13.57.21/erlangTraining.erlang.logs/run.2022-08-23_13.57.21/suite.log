@@ -1,0 +1,293 @@
+=== Suite started at 2022-08-23 13:57:21
+=== Starting test, 13 test cases
+=cases         13
+=user          iaroslav
+=host          RSM3535
+=hosts         RSM3535 
+=emulator_vsn  10.6.4
+=emulator      beam
+=otp_release   22
+=started       2022-08-23 13:57:21
+=case          ct_framework:init_per_suite
+=logfile       ct_framework.init_per_suite.html
+=group_props   [{suite,test1_SUITE}]
+=started       2022-08-23 13:57:22
+=ended         2022-08-23 13:57:22
+=result        ok
+=elapsed       0.0
+=case          test1_SUITE:demo_test
+=logfile       test1_suite.demo_test.html
+=started       2022-08-23 13:57:22
+=ended         2022-08-23 13:57:22
+=result        ok
+=elapsed       0.001586
+=case          test1_SUITE:temp_test
+=logfile       test1_suite.temp_test.html
+=started       2022-08-23 13:57:22
+=ended         2022-08-23 13:57:22
+=result        ok
+=elapsed       8.5e-4
+=case          test1_SUITE:mathStuff_test
+=logfile       test1_suite.mathstuff_test.html
+=started       2022-08-23 13:57:22
+=ended         2022-08-23 13:57:22
+=result        ok
+=elapsed       1.44e-4
+=case          test1_SUITE:lists1_test
+=logfile       test1_suite.lists1_test.html
+=started       2022-08-23 13:57:22
+=ended         2022-08-23 13:57:22
+=result        failed: {undef,
+                           [{lists1,min,[[5]],[]},
+                            {test1_SUITE,'-lists1_test/1-fun-0-',0,
+                                [{file,"test1_SUITE.erl"},{line,63}]},
+                            {test1_SUITE,lists1_test,1,
+                                [{file,"test1_SUITE.erl"},{line,63}]},
+                            {test_server,ts_tc,3,
+                                [{file,"test_server.erl"},{line,1754}]},
+                            {test_server,run_test_case_eval1,6,
+                                [{file,"test_server.erl"},{line,1263}]},
+                            {test_server,run_test_case_eval,9,
+                                [{file,"test_server.erl"},{line,1195}]}]}, [{lists1,
+                                                                             min},
+                                                                            {test1_SUITE,
+                                                                             '-lists1_test/1-fun-0-',
+                                                                             63},
+                                                                            {test1_SUITE,
+                                                                             lists1_test,
+                                                                             63},
+                                                                            {test_server,
+                                                                             ts_tc,
+                                                                             1754},
+                                                                            {test_server,
+                                                                             run_test_case_eval1,
+                                                                             1263},
+                                                                            {test_server,
+                                                                             run_test_case_eval,
+                                                                             1195}]
+=== *** FAILED test case 4 of 13 ***
+=case          test1_SUITE:time_test
+=logfile       test1_suite.time_test.html
+=started       2022-08-23 13:57:22
+=ended         2022-08-23 13:57:22
+=result        ok
+=elapsed       4.74e-4
+=case          test1_SUITE:two_proc_test
+=logfile       test1_suite.two_proc_test.html
+=started       2022-08-23 13:57:22
+=ended         2022-08-23 13:57:22
+=result        failed: {test_case_failed,
+                           "Please rename module as 'two_proc' to proceed the test"}, [{test1_SUITE,
+                                                                                        two_proc_test_common,
+                                                                                        95},
+                                                                                       {test1_SUITE,
+                                                                                        two_proc_test,
+                                                                                        81},
+                                                                                       {test_server,
+                                                                                        ts_tc,
+                                                                                        1754},
+                                                                                       {test_server,
+                                                                                        run_test_case_eval1,
+                                                                                        1263},
+                                                                                       {test_server,
+                                                                                        run_test_case_eval,
+                                                                                        1195}]
+=== *** FAILED test case 6 of 13 ***
+=case          test1_SUITE:ring_test
+=logfile       test1_suite.ring_test.html
+=started       2022-08-23 13:57:22
+=ended         2022-08-23 13:57:22
+=result        failed: {test_case_failed,
+                           "Please rename module as 'ring' to proceed the test"}, [{test1_SUITE,
+                                                                                    ring_test_common,
+                                                                                    138},
+                                                                                   {test1_SUITE,
+                                                                                    ring_test,
+                                                                                    125},
+                                                                                   {test_server,
+                                                                                    ts_tc,
+                                                                                    1754},
+                                                                                   {test_server,
+                                                                                    run_test_case_eval1,
+                                                                                    1263},
+                                                                                   {test_server,
+                                                                                    run_test_case_eval,
+                                                                                    1195}]
+=== *** FAILED test case 7 of 13 ***
+=case          test1_SUITE:star_test
+=logfile       test1_suite.star_test.html
+=started       2022-08-23 13:57:22
+=ended         2022-08-23 13:57:22
+=result        failed: {test_case_failed,
+                           "Please rename module as 'star' to proceed the test"}, [{test1_SUITE,
+                                                                                    star_test_common,
+                                                                                    181},
+                                                                                   {test1_SUITE,
+                                                                                    star_test,
+                                                                                    168},
+                                                                                   {test_server,
+                                                                                    ts_tc,
+                                                                                    1754},
+                                                                                   {test_server,
+                                                                                    run_test_case_eval1,
+                                                                                    1263},
+                                                                                   {test_server,
+                                                                                    run_test_case_eval,
+                                                                                    1195}]
+=== *** FAILED test case 8 of 13 ***
+=case          test1_SUITE:ms_test
+=logfile       test1_suite.ms_test.html
+=started       2022-08-23 13:57:22
+=ended         2022-08-23 13:57:22
+=result        failed: {{assertNotEqual,
+                            [{module,test1_SUITE},
+                             {line,224},
+                             {expression,"whereis ( master )"},
+                             {value,undefined}]},
+                        [{test1_SUITE,'-ms_test_common/1-fun-0-',0,
+                             [{file,"test1_SUITE.erl"},{line,224}]},
+                         {test1_SUITE,ms_test_common,1,
+                             [{file,"test1_SUITE.erl"},{line,224}]},
+                         {test1_SUITE,ms_test,1,
+                             [{file,"test1_SUITE.erl"},{line,211}]},
+                         {test_server,ts_tc,3,
+                             [{file,"test_server.erl"},{line,1754}]},
+                         {test_server,run_test_case_eval1,6,
+                             [{file,"test_server.erl"},{line,1263}]},
+                         {test_server,run_test_case_eval,9,
+                             [{file,"test_server.erl"},{line,1195}]}]}, [{test1_SUITE,
+                                                                          '-ms_test_common/1-fun-0-',
+                                                                          224},
+                                                                         {test1_SUITE,
+                                                                          ms_test_common,
+                                                                          224},
+                                                                         {test1_SUITE,
+                                                                          ms_test,
+                                                                          211},
+                                                                         {test_server,
+                                                                          ts_tc,
+                                                                          1754},
+                                                                         {test_server,
+                                                                          run_test_case_eval1,
+                                                                          1263},
+                                                                         {test_server,
+                                                                          run_test_case_eval,
+                                                                          1195}]
+=== *** FAILED test case 9 of 13 ***
+=case          test1_SUITE:two_proc_test_boundary
+=logfile       test1_suite.two_proc_test_boundary.html
+=started       2022-08-23 13:57:22
+=ended         2022-08-23 13:57:22
+=result        failed: {test_case_failed,
+                           "Please rename module as 'two_proc' to proceed the test"}, [{test1_SUITE,
+                                                                                        two_proc_test_common,
+                                                                                        95},
+                                                                                       {test1_SUITE,
+                                                                                        two_proc_test_boundary,
+                                                                                        86},
+                                                                                       {test_server,
+                                                                                        ts_tc,
+                                                                                        1754},
+                                                                                       {test_server,
+                                                                                        run_test_case_eval1,
+                                                                                        1263},
+                                                                                       {test_server,
+                                                                                        run_test_case_eval,
+                                                                                        1195}]
+=== *** FAILED test case 10 of 13 ***
+=case          test1_SUITE:ring_test_boundary
+=logfile       test1_suite.ring_test_boundary.html
+=started       2022-08-23 13:57:22
+=ended         2022-08-23 13:57:22
+=result        failed: {test_case_failed,
+                           "Please rename module as 'ring' to proceed the test"}, [{test1_SUITE,
+                                                                                    ring_test_common,
+                                                                                    138},
+                                                                                   {test1_SUITE,
+                                                                                    ring_test_boundary,
+                                                                                    130},
+                                                                                   {test_server,
+                                                                                    ts_tc,
+                                                                                    1754},
+                                                                                   {test_server,
+                                                                                    run_test_case_eval1,
+                                                                                    1263},
+                                                                                   {test_server,
+                                                                                    run_test_case_eval,
+                                                                                    1195}]
+=== *** FAILED test case 11 of 13 ***
+=case          test1_SUITE:star_test_boundary
+=logfile       test1_suite.star_test_boundary.html
+=started       2022-08-23 13:57:22
+=ended         2022-08-23 13:57:22
+=result        failed: {test_case_failed,
+                           "Please rename module as 'star' to proceed the test"}, [{test1_SUITE,
+                                                                                    star_test_common,
+                                                                                    181},
+                                                                                   {test1_SUITE,
+                                                                                    star_test_boundary,
+                                                                                    173},
+                                                                                   {test_server,
+                                                                                    ts_tc,
+                                                                                    1754},
+                                                                                   {test_server,
+                                                                                    run_test_case_eval1,
+                                                                                    1263},
+                                                                                   {test_server,
+                                                                                    run_test_case_eval,
+                                                                                    1195}]
+=== *** FAILED test case 12 of 13 ***
+=case          test1_SUITE:ms_test_boundary
+=logfile       test1_suite.ms_test_boundary.html
+=started       2022-08-23 13:57:22
+=ended         2022-08-23 13:57:22
+=result        failed: {{assertNotEqual,
+                            [{module,test1_SUITE},
+                             {line,224},
+                             {expression,"whereis ( master )"},
+                             {value,undefined}]},
+                        [{test1_SUITE,'-ms_test_common/1-fun-0-',0,
+                             [{file,"test1_SUITE.erl"},{line,224}]},
+                         {test1_SUITE,ms_test_common,1,
+                             [{file,"test1_SUITE.erl"},{line,224}]},
+                         {test1_SUITE,ms_test_boundary,1,
+                             [{file,"test1_SUITE.erl"},{line,216}]},
+                         {test_server,ts_tc,3,
+                             [{file,"test_server.erl"},{line,1754}]},
+                         {test_server,run_test_case_eval1,6,
+                             [{file,"test_server.erl"},{line,1263}]},
+                         {test_server,run_test_case_eval,9,
+                             [{file,"test_server.erl"},{line,1195}]}]}, [{test1_SUITE,
+                                                                          '-ms_test_common/1-fun-0-',
+                                                                          224},
+                                                                         {test1_SUITE,
+                                                                          ms_test_common,
+                                                                          224},
+                                                                         {test1_SUITE,
+                                                                          ms_test_boundary,
+                                                                          216},
+                                                                         {test_server,
+                                                                          ts_tc,
+                                                                          1754},
+                                                                         {test_server,
+                                                                          run_test_case_eval1,
+                                                                          1263},
+                                                                         {test_server,
+                                                                          run_test_case_eval,
+                                                                          1195}]
+=== *** FAILED test case 13 of 13 ***
+=case          ct_framework:end_per_suite
+=logfile       ct_framework.end_per_suite.html
+=group_props   [{suite,test1_SUITE}]
+=started       2022-08-23 13:57:22
+=ended         2022-08-23 13:57:22
+=result        ok
+=elapsed       0.0
+=group_time    0.351s
+=== TEST COMPLETE, 4 ok, 9 failed of 13 test cases
+
+=finished      2022-08-23 13:57:22
+=failed        9
+=successful    4
+=user_skipped  0
+=auto_skipped  0

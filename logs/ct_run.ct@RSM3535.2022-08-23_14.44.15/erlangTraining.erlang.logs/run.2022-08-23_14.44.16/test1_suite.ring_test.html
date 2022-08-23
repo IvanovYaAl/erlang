@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Test test1_SUITE:ring_test result</title>
+<meta http-equiv="cache-control" content="no-cache"></meta>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"></meta>
+<link rel="stylesheet" href="../../ct_default.css" type="text/css"></link>
+<script type="text/javascript" src="../../jquery-latest.js"></script>
+<script type="text/javascript" src="../../jquery.tablesorter.min.js"></script>
+</head>
+<body>
+
+<a name="top"></a><pre>
+=== Test case: <a href="test1_suite.src.html#ring_test-1">test1_SUITE:ring_test/1</a> (click for source code)
+
+=== Config value:
+
+    [{watchdog,&lt;0.190.0&gt;},
+     {tc_logfile,"/home/iaroslav/GitLabs/erlangTraining/erlang/logs/ct_run.ct@RSM3535.2022-08-23_14.44.15/erlangTraining.erlang.logs/run.2022-08-23_14.44.16/test1_suite.ring_test.html"},
+     {tc_group_properties,[{suite,test1_SUITE}]},
+     {tc_group_path,[]},
+     {data_dir,"/home/iaroslav/GitLabs/erlangTraining/erlang/test1_SUITE_data/"},
+     {priv_dir,"/home/iaroslav/GitLabs/erlangTraining/erlang/logs/ct_run.ct@RSM3535.2022-08-23_14.44.15/erlangTraining.erlang.logs/run.2022-08-23_14.44.16/log_private/"}]
+
+=== Current directory is "/home/iaroslav/GitLabs/erlangTraining/erlang/logs/ct_run.ct@RSM3535.2022-08-23_14.44.15"
+
+=== Started at 2022-08-23 14:44:17
+
+<br />
+I : &lt;0.214.0&gt; got the message: 1
+
+I : &lt;0.215.0&gt; got the message: 1
+
+I : &lt;0.216.0&gt; got the message: 1
+
+I : &lt;0.217.0&gt; got the message: 1
+
+End of circle: [] Number: 1
+
+I : &lt;0.214.0&gt; got the message: 2
+
+I : &lt;0.215.0&gt; got the message: 2
+
+I : &lt;0.216.0&gt; got the message: 2
+
+I : &lt;0.217.0&gt; got the message: 2
+
+End of circle: [] Number: 2
+
+I : &lt;0.214.0&gt; got the message: 3
+
+I : &lt;0.215.0&gt; got the message: 3
+
+I : &lt;0.216.0&gt; got the message: 3
+
+I : &lt;0.217.0&gt; got the message: 3
+
+End of circle: [] Number: 3
+
+The END
+ Messages stop sends
+
+
+</pre>
+<div class="ct_error_notify"><pre><b>*** CT Error Notification 2022-08-23 14:44:18.313 ***</b>
+test1_SUITE:'-ring_test_common/2-fun-2-' failed on line 163
+Reason: assertEqual
+
+<a href="#end">Full error description and stacktrace</a>
+</pre></div>
+<pre>
+<a name="end"></a>
+
+
+=== Ended at 2022-08-23 14:44:18
+=== Location: [{test1_SUITE,'-ring_test_common/2-fun-2-',<a href="test1_suite.src.html#163">163</a>},
+              {lists,foreach,1338},
+              {test1_SUITE,ring_test_common,<a href="test1_suite.src.html#162">162</a>},
+              {test1_SUITE,ring_test,<a href="test1_suite.src.html#125">125</a>},
+              {test_server,ts_tc,1754},
+              {test_server,run_test_case_eval1,1263},
+              {test_server,run_test_case_eval,1195}]
+=== === Reason: {assertEqual,[{module,test1_SUITE},
+                               {line,163},
+                               {expression,"is_process_alive ( Pid )"},
+                               {expected,false},
+                               {value,true}]}
+  in function  test1_SUITE:'-ring_test_common/2-fun-2-'/1 (test1_SUITE.erl, line 163)
+  in call from lists:foreach/2 (lists.erl, line 1338)
+  in call from test1_SUITE:ring_test_common/2 (test1_SUITE.erl, line 162)
+  in call from test1_SUITE:ring_test/1 (test1_SUITE.erl, line 125)
+  in call from test_server:ts_tc/3 (test_server.erl, line 1754)
+  in call from test_server:run_test_case_eval1/6 (test_server.erl, line 1263)
+  in call from test_server:run_test_case_eval/9 (test_server.erl, line 1195)
+</pre>
+<center>
+<br /><hr /><p>
+<a href="../../../all_runs.html">Test run history
+</a>  |  <a href="../../../index.html">Top level test index
+</a>  |  <a href="../../../suite.log.latest.html">Latest test result</a>
+</p>
+<div class="copyright">Copyright &copy; 2022 <a href="http://www.erlang.org">Open Telecom Platform</a><br />
+Updated: <!--date-->Tue Aug 23 2022 14:44:17<!--/date--><br />
+</div>
+</center>
+</body>
+</html>

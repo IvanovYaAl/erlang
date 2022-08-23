@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Test test3_SUITE:db_ets_test result</title>
+<meta http-equiv="cache-control" content="no-cache"></meta>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"></meta>
+<link rel="stylesheet" href="../../ct_default.css" type="text/css"></link>
+<script type="text/javascript" src="../../jquery-latest.js"></script>
+<script type="text/javascript" src="../../jquery.tablesorter.min.js"></script>
+</head>
+<body>
+
+<a name="top"></a><pre>
+=== Test case: <a href="test3_suite.src.html#db_ets_test-1">test3_SUITE:db_ets_test/1</a> (click for source code)
+
+=== Config value:
+
+    [{watchdog,&lt;0.351.0&gt;},
+     {tc_logfile,"/home/iaroslav/GitLabs/erlangTraining/erlang/logs/ct_run.ct@RSM3535.2022-08-23_13.42.52/erlangTraining.erlang.logs/run.2022-08-23_13.42.52/test3_suite.db_ets_test.html"},
+     {tc_group_properties,[{suite,test3_SUITE}]},
+     {tc_group_path,[]},
+     {data_dir,"/home/iaroslav/GitLabs/erlangTraining/erlang/test3_SUITE_data/"},
+     {priv_dir,"/home/iaroslav/GitLabs/erlangTraining/erlang/logs/ct_run.ct@RSM3535.2022-08-23_13.42.52/erlangTraining.erlang.logs/run.2022-08-23_13.42.52/log_private/"}]
+
+=== Current directory is "/home/iaroslav/GitLabs/erlangTraining/erlang/logs/ct_run.ct@RSM3535.2022-08-23_13.42.52"
+
+=== Started at 2022-08-23 13:42:54
+
+<br />
+
+</pre>
+<div class="ct_error_notify"><pre><b>*** CT Error Notification 2022-08-23 13:42:54.593 ***</b>
+db_ets:db_init failed
+Reason: undef
+
+<a href="#end">Full error description and stacktrace</a>
+</pre></div>
+<pre>
+<a name="end"></a>
+
+
+=== Ended at 2022-08-23 13:42:54
+=== Location: [{db_ets,db_init},
+ {test3_SUITE,backend_test,32},
+ {test3_SUITE,db_ets_test,26},
+ {test_server,ts_tc,1754},
+ {test_server,run_test_case_eval1,1263},
+ {test_server,run_test_case_eval,1195}]
+=== === Reason: undefined function db_ets:db_init/0
+  in function  test3_SUITE:backend_test/1 (test3_SUITE.erl, line 32)
+  in call from test3_SUITE:db_ets_test/1 (test3_SUITE.erl, line 26)
+  in call from test_server:ts_tc/3 (test_server.erl, line 1754)
+  in call from test_server:run_test_case_eval1/6 (test_server.erl, line 1263)
+  in call from test_server:run_test_case_eval/9 (test_server.erl, line 1195)
+</pre>
+<center>
+<br /><hr /><p>
+<a href="../../../all_runs.html">Test run history
+</a>  |  <a href="../../../index.html">Top level test index
+</a>  |  <a href="../../../suite.log.latest.html">Latest test result</a>
+</p>
+<div class="copyright">Copyright &copy; 2022 <a href="http://www.erlang.org">Open Telecom Platform</a><br />
+Updated: <!--date-->Tue Aug 23 2022 13:42:54<!--/date--><br />
+</div>
+</center>
+</body>
+</html>
