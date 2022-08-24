@@ -40,5 +40,5 @@ loop() ->
 		{die, N, N} -> 
 		master ! {rein, N, N},
 		io:format("Master restarting dead slave ~p~n", [N]),
-		loop()
+		exit(normal)
 	end.
