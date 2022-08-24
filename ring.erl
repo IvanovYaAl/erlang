@@ -12,6 +12,7 @@ loop() ->
 	receive
 		{list, Lis, N, M, L} ->
 			[H|T] = Lis,
+			io:format("I (~p) got message #~p~n", [self(), N]), 
 			case length(T) == 0 of
 				false -> H ! {list, T, N, M, L};
 				true -> H ! {empty, T, N, M, L}
@@ -21,9 +22,11 @@ loop() ->
 			N1 = N + 1,
 			case N1 > M of 
 				false -> 
+					io:format("I (~p) got message #~p~n", [self(), N]),
 					[H|T] = L,
 					H ! {list, T, N1, M, L};
 				true ->
+					io:format("I (~p) get last message #~p~n", [self(), N]),
 					[H|T] = L,
 					H ! {dead, T, {die}}
 			end,
