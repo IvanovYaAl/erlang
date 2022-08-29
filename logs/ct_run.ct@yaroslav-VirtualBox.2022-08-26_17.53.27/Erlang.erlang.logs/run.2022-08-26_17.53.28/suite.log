@@ -1,0 +1,186 @@
+=== Suite started at 2022-08-26 17:53:28
+=== Starting test, 13 test cases
+=cases         13
+=user          yaroslav
+=host          yaroslav-VirtualBox
+=hosts         yaroslav-VirtualBox 
+=emulator_vsn  12.2.1
+=emulator      beam
+=otp_release   24
+=started       2022-08-26 17:53:28
+=case          ct_framework:init_per_suite
+=logfile       ct_framework.init_per_suite.html
+=group_props   [{suite,test1_SUITE}]
+=started       2022-08-26 17:53:28
+=ended         2022-08-26 17:53:28
+=result        ok
+=elapsed       1.0e-6
+=case          test1_SUITE:demo_test
+=logfile       test1_suite.demo_test.html
+=started       2022-08-26 17:53:28
+=ended         2022-08-26 17:53:28
+=result        ok
+=elapsed       0.009575
+=case          test1_SUITE:temp_test
+=logfile       test1_suite.temp_test.html
+=started       2022-08-26 17:53:28
+=ended         2022-08-26 17:53:28
+=result        ok
+=elapsed       0.004361
+=case          test1_SUITE:mathStuff_test
+=logfile       test1_suite.mathstuff_test.html
+=started       2022-08-26 17:53:28
+=ended         2022-08-26 17:53:28
+=result        ok
+=elapsed       0.001937
+=case          test1_SUITE:lists1_test
+=logfile       test1_suite.lists1_test.html
+=started       2022-08-26 17:53:28
+=ended         2022-08-26 17:53:28
+=result        ok
+=elapsed       0.001846
+=case          test1_SUITE:time_test
+=logfile       test1_suite.time_test.html
+=started       2022-08-26 17:53:28
+=ended         2022-08-26 17:53:28
+=result        ok
+=elapsed       0.006767
+=case          test1_SUITE:two_proc_test
+=logfile       test1_suite.two_proc_test.html
+=started       2022-08-26 17:53:28
+=ended         2022-08-26 17:53:29
+=result        ok
+=elapsed       1.003472
+=case          test1_SUITE:ring_test
+=logfile       test1_suite.ring_test.html
+=started       2022-08-26 17:53:29
+=ended         2022-08-26 17:53:30
+=result        ok
+=elapsed       1.006443
+=case          test1_SUITE:star_test
+=logfile       test1_suite.star_test.html
+=started       2022-08-26 17:53:30
+=ended         2022-08-26 17:53:31
+=result        ok
+=elapsed       1.006108
+=case          test1_SUITE:ms_test
+=logfile       test1_suite.ms_test.html
+=started       2022-08-26 17:53:31
+=ended         2022-08-26 17:53:33
+=result        failed: {badarg,
+                           [{erlang,send,
+                                [master,{"Hi, slave!",1}],
+                                [{error_info,#{module => erl_erts_errors}}]},
+                            {ms,to_slave,2,[{file,"ms.erl"},{line,19}]},
+                            {test1_SUITE,'-ms_test_common/1-lc$^2/1-1-',1,
+                                [{file,"test1_SUITE.erl"},{line,239}]},
+                            {test1_SUITE,ms_test_common,1,
+                                [{file,"test1_SUITE.erl"},{line,239}]},
+                            {test1_SUITE,ms_test,1,
+                                [{file,"test1_SUITE.erl"},{line,211}]},
+                            {test_server,ts_tc,3,
+                                [{file,"test_server.erl"},{line,1783}]},
+                            {test_server,run_test_case_eval1,6,
+                                [{file,"test_server.erl"},{line,1292}]},
+                            {test_server,run_test_case_eval,9,
+                                [{file,"test_server.erl"},{line,1224}]}]}, [{erlang,
+                                                                             send},
+                                                                            {ms,
+                                                                             to_slave,
+                                                                             19},
+                                                                            {test1_SUITE,
+                                                                             '-ms_test_common/1-lc$^2/1-1-',
+                                                                             239},
+                                                                            {test1_SUITE,
+                                                                             ms_test_common,
+                                                                             239},
+                                                                            {test1_SUITE,
+                                                                             ms_test,
+                                                                             211},
+                                                                            {test_server,
+                                                                             ts_tc,
+                                                                             1783},
+                                                                            {test_server,
+                                                                             run_test_case_eval1,
+                                                                             1292},
+                                                                            {test_server,
+                                                                             run_test_case_eval,
+                                                                             1224}]
+=== *** FAILED test case 9 of 13 ***
+=case          test1_SUITE:two_proc_test_boundary
+=logfile       test1_suite.two_proc_test_boundary.html
+=started       2022-08-26 17:53:33
+=ended         2022-08-26 17:53:34
+=result        ok
+=elapsed       1.004128
+=case          test1_SUITE:ring_test_boundary
+=logfile       test1_suite.ring_test_boundary.html
+=started       2022-08-26 17:53:34
+=ended         2022-08-26 17:53:35
+=result        ok
+=elapsed       1.002728
+=case          test1_SUITE:star_test_boundary
+=logfile       test1_suite.star_test_boundary.html
+=started       2022-08-26 17:53:35
+=ended         2022-08-26 17:53:36
+=result        ok
+=elapsed       1.003405
+=case          test1_SUITE:ms_test_boundary
+=logfile       test1_suite.ms_test_boundary.html
+=started       2022-08-26 17:53:36
+=ended         2022-08-26 17:53:38
+=result        failed: {badarg,
+                           [{erlang,send,
+                                [master,{"Hi, slave!",1}],
+                                [{error_info,#{module => erl_erts_errors}}]},
+                            {ms,to_slave,2,[{file,"ms.erl"},{line,19}]},
+                            {test1_SUITE,'-ms_test_common/1-lc$^4/1-3-',1,
+                                [{file,"test1_SUITE.erl"},{line,248}]},
+                            {test1_SUITE,ms_test_common,1,
+                                [{file,"test1_SUITE.erl"},{line,248}]},
+                            {test1_SUITE,ms_test_boundary,1,
+                                [{file,"test1_SUITE.erl"},{line,216}]},
+                            {test_server,ts_tc,3,
+                                [{file,"test_server.erl"},{line,1783}]},
+                            {test_server,run_test_case_eval1,6,
+                                [{file,"test_server.erl"},{line,1292}]},
+                            {test_server,run_test_case_eval,9,
+                                [{file,"test_server.erl"},{line,1224}]}]}, [{erlang,
+                                                                             send},
+                                                                            {ms,
+                                                                             to_slave,
+                                                                             19},
+                                                                            {test1_SUITE,
+                                                                             '-ms_test_common/1-lc$^4/1-3-',
+                                                                             248},
+                                                                            {test1_SUITE,
+                                                                             ms_test_common,
+                                                                             248},
+                                                                            {test1_SUITE,
+                                                                             ms_test_boundary,
+                                                                             216},
+                                                                            {test_server,
+                                                                             ts_tc,
+                                                                             1783},
+                                                                            {test_server,
+                                                                             run_test_case_eval1,
+                                                                             1292},
+                                                                            {test_server,
+                                                                             run_test_case_eval,
+                                                                             1224}]
+=== *** FAILED test case 13 of 13 ***
+=case          ct_framework:end_per_suite
+=logfile       ct_framework.end_per_suite.html
+=group_props   [{suite,test1_SUITE}]
+=started       2022-08-26 17:53:38
+=ended         2022-08-26 17:53:38
+=result        ok
+=elapsed       1.0e-6
+=group_time    10.540s
+=== TEST COMPLETE, 11 ok, 2 failed of 13 test cases
+
+=finished      2022-08-26 17:53:38
+=failed        2
+=successful    11
+=user_skipped  0
+=auto_skipped  0

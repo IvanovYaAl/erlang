@@ -1,0 +1,227 @@
+=== Suite started at 2022-08-29 13:34:00
+=== Starting test, 8 test cases
+=cases         8
+=user          yaroslav
+=host          yaroslav-VirtualBox
+=hosts         yaroslav-VirtualBox 
+=emulator_vsn  12.2.1
+=emulator      beam
+=otp_release   24
+=started       2022-08-29 13:34:00
+=case          ct_framework:init_per_suite
+=logfile       ct_framework.init_per_suite.html
+=group_props   [{suite,test2_SUITE}]
+=started       2022-08-29 13:34:00
+=ended         2022-08-29 13:34:00
+=result        ok
+=elapsed       1.0e-6
+=case          test2_SUITE:db_list_test
+=logfile       test2_suite.db_list_test.html
+=started       2022-08-29 13:34:00
+=ended         2022-08-29 13:34:00
+=result        ok
+=elapsed       0.010151
+=case          test2_SUITE:db_record_test
+=logfile       test2_suite.db_record_test.html
+=started       2022-08-29 13:34:00
+=ended         2022-08-29 13:34:00
+=result        ok
+=elapsed       0.008283
+=case          test2_SUITE:db_ets_test
+=logfile       test2_suite.db_ets_test.html
+=started       2022-08-29 13:34:00
+=ended         2022-08-29 13:34:00
+=result        failed: {undef,
+                           [{db_ets,start,[],[]},
+                            {test2_SUITE,db_test,1,
+                                [{file,"test2_SUITE.erl"},{line,105}]},
+                            {test2_SUITE,db_ets_test,1,
+                                [{file,"test2_SUITE.erl"},{line,91}]},
+                            {test_server,ts_tc,3,
+                                [{file,"test_server.erl"},{line,1783}]},
+                            {test_server,run_test_case_eval1,6,
+                                [{file,"test_server.erl"},{line,1292}]},
+                            {test_server,run_test_case_eval,9,
+                                [{file,"test_server.erl"},{line,1224}]}]}, [{db_ets,
+                                                                             start},
+                                                                            {test2_SUITE,
+                                                                             db_test,
+                                                                             105},
+                                                                            {test2_SUITE,
+                                                                             db_ets_test,
+                                                                             91},
+                                                                            {test_server,
+                                                                             ts_tc,
+                                                                             1783},
+                                                                            {test_server,
+                                                                             run_test_case_eval1,
+                                                                             1292},
+                                                                            {test_server,
+                                                                             run_test_case_eval,
+                                                                             1224}]
+=== *** FAILED test case 3 of 8 ***
+=case          test2_SUITE:db_dets_test
+=logfile       test2_suite.db_dets_test.html
+=started       2022-08-29 13:34:00
+=ended         2022-08-29 13:34:01
+=result        failed: {undef,
+                           [{db_dets,start,[],[]},
+                            {test2_SUITE,db_test,1,
+                                [{file,"test2_SUITE.erl"},{line,105}]},
+                            {test2_SUITE,db_dets_test,1,
+                                [{file,"test2_SUITE.erl"},{line,96}]},
+                            {test_server,ts_tc,3,
+                                [{file,"test_server.erl"},{line,1783}]},
+                            {test_server,run_test_case_eval1,6,
+                                [{file,"test_server.erl"},{line,1292}]},
+                            {test_server,run_test_case_eval,9,
+                                [{file,"test_server.erl"},{line,1224}]}]}, [{db_dets,
+                                                                             start},
+                                                                            {test2_SUITE,
+                                                                             db_test,
+                                                                             105},
+                                                                            {test2_SUITE,
+                                                                             db_dets_test,
+                                                                             96},
+                                                                            {test_server,
+                                                                             ts_tc,
+                                                                             1783},
+                                                                            {test_server,
+                                                                             run_test_case_eval1,
+                                                                             1292},
+                                                                            {test_server,
+                                                                             run_test_case_eval,
+                                                                             1224}]
+=== *** FAILED test case 4 of 8 ***
+=case          test2_SUITE:funs_test
+=logfile       test2_suite.funs_test.html
+=started       2022-08-29 13:34:01
+=ended         2022-08-29 13:34:01
+=result        failed: {undef,
+                           [{funs,llen,[[[],[1,2,3],[a,v,d,s,s]]],[]},
+                            {test2_SUITE,funs_test,1,
+                                [{file,"test2_SUITE.erl"},{line,183}]},
+                            {test_server,ts_tc,3,
+                                [{file,"test_server.erl"},{line,1783}]},
+                            {test_server,run_test_case_eval1,6,
+                                [{file,"test_server.erl"},{line,1292}]},
+                            {test_server,run_test_case_eval,9,
+                                [{file,"test_server.erl"},{line,1224}]}]}, [{funs,
+                                                                             llen},
+                                                                            {test2_SUITE,
+                                                                             funs_test,
+                                                                             183},
+                                                                            {test_server,
+                                                                             ts_tc,
+                                                                             1783},
+                                                                            {test_server,
+                                                                             run_test_case_eval1,
+                                                                             1292},
+                                                                            {test_server,
+                                                                             run_test_case_eval,
+                                                                             1224}]
+=== *** FAILED test case 5 of 8 ***
+=case          test2_SUITE:lc_test
+=logfile       test2_suite.lc_test.html
+=started       2022-08-29 13:34:01
+=ended         2022-08-29 13:34:01
+=result        failed: {undef,
+                           [{lc,atoms,[[{hello,1},3,ernie,[a,b,c],burt]],[]},
+                            {test2_SUITE,lc_test,1,
+                                [{file,"test2_SUITE.erl"},{line,203}]},
+                            {test_server,ts_tc,3,
+                                [{file,"test_server.erl"},{line,1783}]},
+                            {test_server,run_test_case_eval1,6,
+                                [{file,"test_server.erl"},{line,1292}]},
+                            {test_server,run_test_case_eval,9,
+                                [{file,"test_server.erl"},{line,1224}]}]}, [{lc,
+                                                                             atoms},
+                                                                            {test2_SUITE,
+                                                                             lc_test,
+                                                                             203},
+                                                                            {test_server,
+                                                                             ts_tc,
+                                                                             1783},
+                                                                            {test_server,
+                                                                             run_test_case_eval1,
+                                                                             1292},
+                                                                            {test_server,
+                                                                             run_test_case_eval,
+                                                                             1224}]
+=== *** FAILED test case 6 of 8 ***
+=case          test2_SUITE:db_distr_test
+=logfile       test2_suite.db_distr_test.html
+=started       2022-08-29 13:34:01
+=ended         2022-08-29 13:34:02
+=result        failed: {undef,
+                           [{db_distr,all_names,[],[]},
+                            {test2_SUITE,check_connection_to_db,0,
+                                [{file,"test2_SUITE.erl"},{line,264}]},
+                            {test2_SUITE,db_distr_test,1,
+                                [{file,"test2_SUITE.erl"},{line,290}]},
+                            {test_server,ts_tc,3,
+                                [{file,"test_server.erl"},{line,1783}]},
+                            {test_server,run_test_case_eval1,6,
+                                [{file,"test_server.erl"},{line,1292}]},
+                            {test_server,run_test_case_eval,9,
+                                [{file,"test_server.erl"},{line,1224}]}]}, [{db_distr,
+                                                                             all_names},
+                                                                            {test2_SUITE,
+                                                                             check_connection_to_db,
+                                                                             264},
+                                                                            {test2_SUITE,
+                                                                             db_distr_test,
+                                                                             290},
+                                                                            {test_server,
+                                                                             ts_tc,
+                                                                             1783},
+                                                                            {test_server,
+                                                                             run_test_case_eval1,
+                                                                             1292},
+                                                                            {test_server,
+                                                                             run_test_case_eval,
+                                                                             1224}]
+=== *** FAILED test case 7 of 8 ***
+=case          test2_SUITE:db_distr_robust_test
+=logfile       test2_suite.db_distr_robust_test.html
+=started       2022-08-29 13:34:02
+=ended         2022-08-29 13:34:02
+=result        failed: {undef,
+                           [{db_distr,all_names,[],[]},
+                            {test2_SUITE,db_distr_robust_test,1,
+                                [{file,"test2_SUITE.erl"},{line,308}]},
+                            {test_server,ts_tc,3,
+                                [{file,"test_server.erl"},{line,1783}]},
+                            {test_server,run_test_case_eval1,6,
+                                [{file,"test_server.erl"},{line,1292}]},
+                            {test_server,run_test_case_eval,9,
+                                [{file,"test_server.erl"},{line,1224}]}]}, [{db_distr,
+                                                                             all_names},
+                                                                            {test2_SUITE,
+                                                                             db_distr_robust_test,
+                                                                             308},
+                                                                            {test_server,
+                                                                             ts_tc,
+                                                                             1783},
+                                                                            {test_server,
+                                                                             run_test_case_eval1,
+                                                                             1292},
+                                                                            {test_server,
+                                                                             run_test_case_eval,
+                                                                             1224}]
+=== *** FAILED test case 8 of 8 ***
+=case          ct_framework:end_per_suite
+=logfile       ct_framework.end_per_suite.html
+=group_props   [{suite,test2_SUITE}]
+=started       2022-08-29 13:34:02
+=ended         2022-08-29 13:34:02
+=result        ok
+=elapsed       1.0e-6
+=group_time    1.576s
+=== TEST COMPLETE, 2 ok, 6 failed of 8 test cases
+
+=finished      2022-08-29 13:34:02
+=failed        6
+=successful    2
+=user_skipped  0
+=auto_skipped  0
