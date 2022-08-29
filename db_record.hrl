@@ -1,1 +1,1 @@
--record(users,{name, location, company}).
+-record(users,{name=$1, location=$2, company=$3}).

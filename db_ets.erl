@@ -1,50 +1,48 @@
--module(db_record).
+-module(db_ets).
 -import(mf, [index_of/3]).
 -include("db_record.hrl").
--export([start/0, loop/1, stop/0, insert/3, where_is/1, remove/1, located_at/1,
-	all_names/0, all_locations/0, working_at/1]).
+
+-export([start/0, loop/1, stop/0, insert/3, where_is/1]).
+-export([remove/1, located_at/1]).
+-export([all_names/0, all_locations/0, working_at/1, get_all/0]).
 
 %% Server
 start() ->
-	L = [],
-	Server = spawn(?MODULE, loop, [L]),
+	Server = spawn(fun() -> loop(ets:new(my_ets, [bag, protected, {keypos, #users.name}])) end),
 	register(server, Server),
 	ok.
 
 loop(L) ->
 receive
 	{insert, Name, Location, Company, Pid} ->
-		case lists:keymember(Name, 2, L) of 
-			false ->
-				NewUser = #users{name=Name, location=Location, company=Company}, 
-				L1 = lists:append(L, [NewUser]),
+		NewUser = #users{name=Name, location=Location, company=Company},
+		Ls = lists:append(ets:match(L, #users{name=Name, location='$2', company='_'})),
+		case length(Ls) == 0 of 
+			true ->
+				ets:insert(L, NewUser),
 				Pid ! ok;
-			true -> L1 = L,
+			false ->
 				Pid ! already_inserted
 		end,
-		loop(L1);
+		loop(L);
 
 	{where_is, Name, Pid} ->
-		Tuple = lists:keyfind(Name, #users.name, L),
-		case Tuple == false of 
+		Loc = lists:append(ets:match(L, #users{name=Name, location='$2', company='_'})),
+		case length(Loc) == 0 of 
 			true -> Pid ! {no_such_name, Name};
-			false -> {_, _, X, _} = Tuple, 
+			false -> Tuple = list_to_tuple(Loc),
+				{X} = Tuple, 
 				Pid ! X
 		end,
 		loop(L);
 		
 	{remove, Name, Pid} ->
-		Tuple = lists:keyfind(Name, #users.name, L),
-		case Tuple == false of
-			true -> L1 = L,
-				Pid ! ok;
-			false -> L1 = lists:keydelete(Name, #users.name, L),
-			Pid ! ok
-		end,
-		loop(L1);
+		ets:delete(L, Name),
+		Pid ! ok,
+		loop(L);
 
 	{located_at, Location, Pid} ->
-		Ls = get_located(L, Location, []),
+		Ls = lists:append(ets:match(L, #users{name='$1', location=Location, company='_'})),
 		case length(Ls) == 0 of
 			true -> Pid ! none;
 			false -> Pid ! Ls
@@ -52,7 +50,7 @@ receive
 		loop(L);
 
 	{working_at, Company, Pid} ->
-		Names = [Name || #users{name=Name, company=Com} <- L, Com == Company],
+		Names = lists:append(ets:match(L, #users{name='$1', location='_', company=Company})),
 		case Names == [] of
 			false -> Pid ! Names;
 			true -> Pid ! none
@@ -60,43 +58,23 @@ receive
 		loop(L);
 
 	{all_names, Pid} ->
-		Ls = lists:ukeysort(#users.name, L),
-		Pid ! get_all_names(Ls, []),
+		Ls = lists:merge(ets:match(L, #users{name='$1', location='_', company='_'})),
+		Pid ! Ls,
 		loop(L);
 
 	{all_locations, Pid} ->
-		Ls = lists:ukeysort(#users.location, L),
-		Pid ! get_all_locations(Ls, []),
+		Ls = lists:usort(lists:append(ets:match(L, #users{name='_', location='$2', company='_'}))),
+		Pid ! Ls,
+		loop(L);
+
+	{get_all, Pid} ->
+		Pid ! L,
 		loop(L);
 
 	{stop, Pid} -> io:format("Server shuted down",[]),
 		Pid ! server_terminated,
 		exit(normal)
 end.
-
-get_all_locations([], Locations) -> Locations;
-get_all_locations(L, Locations) ->
-	[H|T] = L,
-	{_, _, X, _} = H,
-	Locations1 = Locations ++ [X],
-	get_all_locations(T, Locations1).
-
-get_all_names([], Names) -> Names;
-get_all_names(L, Names) ->
-	[H|T] = L,
-	{_, X, _, _} = H,
-	Names1 = Names ++ [X],
-	get_all_names(T, Names1).
-
-
-get_located([], _, Locations) -> Locations;
-get_located(L, Name, Locations) ->
-	[H|T] = L,
-	{_, Y, X, _} = H,
-	case X == Name of
-		true -> En1 = Locations ++ [Y], get_located(T, Name, En1);
-		false -> get_located(T, Name, Locations)
-	end.
 
 stop() ->
 	server ! {stop, self()},
@@ -143,6 +121,12 @@ all_names() ->
 
 all_locations() ->
 	server ! {all_locations, self()},
+	receive
+		Response -> Response
+	end.
+
+get_all() ->
+	server ! {get_all, self()},
 	receive
 		Response -> Response
 	end.
