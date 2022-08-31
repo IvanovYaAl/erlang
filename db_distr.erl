@@ -3,7 +3,7 @@
 -include("db_record.hrl").
 
 -export([start/0, loop/1, stop/0, insert/3, where_is/1]).
--export([remove/1, located_at/1]).
+-export([remove/1, located_at/1, check_server/0]).
 -export([all_names/0, all_locations/0, working_at/1, get_all/0]).
 
 %% Server
@@ -85,42 +85,90 @@ stop() ->
 %% Client
 
 insert(Name, Location, Company) ->
-	server ! {insert, Name, Location, Company, self()},
+	[H|_] = nodes(),
+	case is_pid(whereis(server)) of
+		false -> self() ! rpc:call(H, db_distr, insert, [Name, Location, Company]);
+		true ->	server ! {insert, Name, Location, Company, self()}
+	end,
 	receive
 		Response -> Response
 	end.
 
 where_is(Name) ->
-	server ! {where_is, Name, self()},
+	[H|_] = nodes(),
+	case is_pid(whereis(server)) of
+		false -> self() ! rpc:call(H, db_distr, where_is, [Name]);
+		true -> server ! {where_is, Name, self()}
+	end,
 	receive
 		Response -> Response
 	end.
 
 remove(Name) ->
-	server ! {remove, Name, self()},
+	[H|_] = nodes(),
+	case is_pid(whereis(server)) of
+		false -> self() ! rpc:call(H, db_distr, remove, [Name]);
+		true ->	server ! {remove, Name, self()}
+	end,
 	receive
 		Response -> Response
 	end.
 
 located_at(Location) ->
-	server ! {located_at, Location, self()},
+	[H|_] = nodes(),
+	case is_pid(whereis(server)) of
+		false -> self() ! rpc:call(H, db_distr, located_at, [Location]);
+		true ->	server ! {located_at, Location, self()}
+	end,
 	receive
 		Response -> Response
 	end.
 working_at(Company) ->
-	server ! {working_at, Company, self()},
+	[H|_] = nodes(),
+	case is_pid(whereis(server)) of
+		false -> self() ! rpc:call(H, db_distr, working_at, [Company]);
+		true -> server ! {working_at, Company, self()}
+	end,
 	receive
 		Response -> Response
 	end.
 
 all_names() ->
-	server ! {all_names, self()},
+	ct:print("Pid: ~p, Server: ~p Node: ~p, Nodes: ~p~n",[self(), server, node(), nodes()]),
+	ct:print("ALive: ~p, Porcess: ~p~n",[is_alive(), whereis(server)]),
+	%%node() ! {all_names, self()},
+	Nn = nodes(),
+	ct:print("~p~n", [{is_pid(whereis(server)), length(Nn) == 0}]),
+	%%case is_pid(whereis(server)) of
+	case string:equal(string:substr(atom_to_list(node()), 1, 6), "server") of
+		true -> 
+			ct:print("It is true for name server~n", []),
+			case is_pid(whereis(server)) of
+				true -> 
+					ct:print("True for serv~n", []),
+					server ! {all_names, self()};
+				false ->
+					ct:print("False for serv~n", []), 
+					self() ! none
+			end;
+		false ->
+			[H|_] = nodes(),
+			ct:print("False for name server and H: ~p~n", [H]),
+			self() ! rpc:call(H, db_distr, all_names, [])
+	end,
+
 	receive
-		Response -> Response
+		Response -> 
+			ct:print("Got response: ~p~n", [Response]),
+			Response
 	end.
 
 all_locations() ->
-	server ! {all_locations, self()},
+	[H|_] = nodes(),
+	case is_pid(whereis(server)) of
+		false -> self() ! rpc:call(H, db_distr, all_locations, []);
+		true ->	server ! {all_locations, self()}
+	end,
 	receive
 		Response -> Response
 	end.
@@ -130,3 +178,6 @@ get_all() ->
 	receive
 		Response -> Response
 	end.
+
+check_server() ->
+	ct:print("Is alive: ~p~n",[is_process_alive(whereis(server))]).
