@@ -152,9 +152,13 @@ all_names() ->
 					self() ! none
 			end;
 		false ->
-			[H|_] = nodes(),
-			ct:print("False for name server and H: ~p~n", [H]),
-			self() ! rpc:call(H, db_distr, all_names, [])
+			case length(Nn) == 0 of
+				true -> self() ! none;
+				false -> 
+					[H|_] = nodes(),
+					ct:print("False for name server and H: ~p~n", [H]),
+					self() ! rpc:call(H, db_distr, all_names, [])
+			end
 	end,
 
 	receive
