@@ -1,0 +1,1 @@
+-record(files,{key=$1, data=$2}).
